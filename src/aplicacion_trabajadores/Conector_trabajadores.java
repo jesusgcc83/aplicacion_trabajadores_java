@@ -13,13 +13,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 /**
  *
  * @author familia_p1
  */
 public class Conector_trabajadores {
      //String url="E:/Documents and Settings/familia_p1/Escritorio/bases de datos/base_trabajadores.db";
-    String url="E:/Jesus/sistemas/bases de datos/base_trabajadores.db";
+    //String url="E:/Jesus/sistemas/bases de datos/base_trabajadores.db";
+      String url="./base_datos_sqlite/base_trabajadores.db";
     Connection connect;
     public void connect(){
         
@@ -98,4 +100,16 @@ public class Conector_trabajadores {
         return result;
     }
     
+    public ResultSet tomar_tabla(){
+        ResultSet result=null;
+        try{
+            PreparedStatement st=connect.prepareStatement("select * from datos_trabajador"); 
+            result = st.executeQuery();
+        }catch(SQLException ex){
+            System.err.println(ex.getMessage());
+        }
+        return result;
+    }
+    
 }
+

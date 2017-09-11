@@ -18,6 +18,7 @@ public class Aplicacion_trabajadores {
         
         jfTrabajadores jf = new jfTrabajadores();
         jf.inicializar();
+        jf.actualizar_tabla();
         jf.setVisible(true);
     
     }
